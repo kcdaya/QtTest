@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -ex
 
 echo "#############################################"
 echo " Building QtTest"
@@ -15,5 +15,9 @@ qmake -r test1.pro CONFIG+=" qt5 release " &&
 make clean &&
 make 2>&1 | tee compile.log
 
-cd $workspace
+if [ $? -ne 0 ]; then
+    echo "Build failed due to error!"
+    exit 1
+fi
 
+cd $workspace
