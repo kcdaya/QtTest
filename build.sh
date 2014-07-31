@@ -24,10 +24,3 @@ cd $workspace
 qmake -r test1.pro CONFIG+=" qt5 release " QT+=" widgets " &&
 make clean &&
 make 2>&1 | tee compile.log
-
-if [ $? -ne 1 ]; then
-    echo "Build failed due to error!"
-    exit 1
-fi
-
-cd $workspace
