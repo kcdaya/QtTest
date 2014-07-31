@@ -21,6 +21,6 @@ export BUILD=RELEASE
 export workspace=$(pwd)
 cd $workspace
 
-qmake -r test1.pro CONFIG+=" qt5 release " &&
+qmake -r test1.pro CONFIG+=" qt5 release " QT+=" widgets " &&
 make clean &&
 make -j4
