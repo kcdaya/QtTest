@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -ex
 
 echo "#############################################"
 echo " Building QtTest"
@@ -23,4 +23,4 @@ cd $workspace
 
 qmake -r test1.pro CONFIG+=" qt5 release " &&
 make clean &&
-make 2>&1 | tee compile.log
+make -j4
